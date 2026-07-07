@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>box-shadow</title>
+<title>배경이미지 고정</title>
 <style>
-p{display: inline-block;
-background-color: antiquewhite;
-padding: 20px;
-border-radius: 55px 10px;}
-.shadow1{box-shadow: 8px 15px;}
-.shadow2{box-shadow: 8px 15px rgba(0,0,50,.4);}
-.shadow3{box-shadow: 8px 15px 8px rgba(0,0,50,.4);} /* 세번째 px 블러의 흐림 정도  */
-.shadow4{box-shadow: 8px 15px 8px 7px rgba(0,0,50,.4);}
-.shadow5{box-shadow: 8px 15px 10px inset rgba(0,0,50,.4);} /* inset  위쪽 그람자 */
-.shadow6{box-shadow: -8px -15px 8px 8px darkblue, -8px -15px ;}
-.shadow6{box-shadow: -8px -15px 8px 8px darkblue, 8px 15px 8px 8px darkred ;}
+    p{padding: 20px;
+        height: 100vh;
+    }
+    .bg_fixed{min-height: 200px;
+    background-image: url(./02/img/bg_fixed.png);
+background-position: center;
+background-attachment: fixed;}
+.btm{min-width: 200px;
+background-color: beige;}
+
 </style>
 </head>
 <body>
-     <p class="shadow1">It's impossible not only starting good but also keeping it firm!!</p>
-     <p class="shadow2">It's impossible not only starting good but also keeping it firm!!</p>
-     <p class="shadow3">It's impossible not only starting good but also keeping it firm!!</p>
-     <p class="shadow4">It's impossible not only starting good but also keeping it firm!!</p>
-     <p class="shadow5">It's impossible not only starting good but also keeping it firm!!</p>
-     <p class="shadow6">It's impossible not only starting good but also keeping it firm!!</p>
+    <p>패션의 완성은 자연이다.<br>멋지고도 순수한 자연만큼 패셔너블한게 있을까! <br>강렬하고 화려해서가 아니라 적절한 시기와 적절한 장소, 그리고 풍요로운 볼거리를 제공해주고 있지 않나.<br>
+    조심스럽게 살펴보면 자연이 보여주고 있는 모든것이 옷이고 장신구, 신발들이다..</p>
+    <p class="bg_fixed"></p>
+    <p class="btm">최고의 패션, 자연을 팝니다... </p>
 </body>
 </html>
