@@ -51,6 +51,69 @@
           font-style: normal;
           font-size: 50px;
         }
+        .folder-summary {
+          margin: 2rem 0 1.5rem;
+          padding: 1.3rem;
+          border-radius: 24px;
+          background: linear-gradient(135deg, #fff8e1 0%, #fce4ec 100%);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .folder-summary h2 {
+          margin-bottom: 0.3rem;
+          color: #a2185b;
+        }
+        .folder-summary p {
+          margin-top: 0;
+          color: #6b4f5b;
+        }
+        .summary-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+        .summary-card {
+          background: rgba(255,255,255,0.95);
+          border-radius: 18px;
+          padding: 1rem;
+          border: 1px solid rgba(162,24,91,0.12);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .summary-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 20px rgba(162,24,91,0.12);
+        }
+        .summary-card .badge {
+          display: inline-block;
+          margin-bottom: 0.5rem;
+          padding: 0.25rem 0.6rem;
+          border-radius: 999px;
+          background: #ffe0ef;
+          color: #a2185b;
+          font-size: 0.8rem;
+          font-weight: 700;
+        }
+        .summary-card h3 {
+          margin: 0 0 0.5rem;
+          color: #333;
+        }
+        .summary-card ul {
+          margin: 0;
+          padding-left: 1rem;
+          color: #555;
+        }
+        .summary-card li + li {
+          margin-top: 0.3rem;
+        }
+        .summary-card a {
+          color: #d81b60;
+          text-decoration: none;
+          font-weight: 600;
+        }
+        .summary-card a:hover {
+          color: #7b1fa2;
+          text-decoration: underline;
+        }
         </style>
   </head>
   <body>
@@ -80,6 +143,52 @@
         </figure>
       </section><hr>
       <!-- 구분선 -->
+      <section class="folder-summary">
+        <h2>📁 폴더별 학습 요약</h2>
+        <p>각 폴더의 핵심 자료를 한눈에 볼 수 있도록 정리한 미니 인덱스입니다.</p>
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="badge">01 · HTML 기초</span>
+            <h3>기초 실습 모음</h3>
+            <ul>
+              <li><a href="01/qr.html">QR 코드 페이지</a></li>
+              <li><a href="01/ex1-3.html">0513 실습</a></li>
+              <li><a href="01/ex1-4_0514.html">0514 실습</a></li>
+            </ul>
+          </article>
+
+          <article class="summary-card">
+            <span class="badge">02 · HTML/CSS</span>
+            <h3>예제와 과제</h3>
+            <ul>
+              <li><a href="02/ex2-5.html">0521 기록</a></li>
+              <li><a href="02/ex2-14.html">0526 기록</a></li>
+              <li><a href="02/quiz.html">퀴즈 페이지</a></li>
+            </ul>
+          </article>
+
+          <article class="summary-card">
+            <span class="badge">03 · JavaScript</span>
+            <h3>스크립트 실습</h3>
+            <ul>
+              <li><a href="03/ex3-1.html">기본 예제</a></li>
+              <li><a href="03/ex3-24.html">실습 페이지</a></li>
+              <li><a href="03/ex3-10.js">JS 파일</a></li>
+            </ul>
+          </article>
+
+          <article class="summary-card">
+            <span class="badge">doc · 가이드</span>
+            <h3>공부 참고 자료</h3>
+            <ul>
+              <li><a href="doc/html_start.html">HTML 구조 설명</a></li>
+              <li><a href="doc/css.html">CSS 정리</a></li>
+              <li><a href="doc/gemini_cli_commands.html">CLI 가이드</a></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <!-- 학습 기록 및 아카이브 섹션 -->
     <section><h2>학습 기록</h2>
         <article>
