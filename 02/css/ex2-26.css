@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/* 초기화 코드 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* css의 상속이란?
+상위요소에 적용한 속성값을 하위요소가 대물림 받는 것 font 설정관련 속성이 상속이 됨 */
+html{color: rgb(253, 253, 253);
+font-size: 26px;
+font-weight: bold;
+line-height: 2;
+border: 5px solid;}
+/* text decoration(밑줄), text-transform */
+
+a{text-decoration: line-through; /* 취소선 */
+text-decoration: underline; /* 밑줄 */
+text-decoration: overline; /* 윗줄 */
+text-decoration: none; }/* 없음 */
+
+p{text-transform: uppercase;/* 영문 모두 대문자 */
+    text-transform: lowercase; /* 영문 모두 소문자 */
+text-transform: capitalize; }/* 영문 첫글자 대문자 */
+/* 첫번째 A태그 선택  */
+
+li:nth-child(1) a{color: red;
+             /* x y  */
+text-shadow: 4px 4px 11px red;} /* li 밑에 오는 첫번째 */
+
+li:nth-child(2) a{color: white;
+text-shadow: 4px 4px 11px #000;}
+li:nth-child(2):hover a{color: rgb(255, 6, 6);
+text-shadow: 4px 4px 11px #000;}
+
+
+p{text-shadow:
+-5px 0 0 #ff006e,
+5px 0 0 #00f5d4;}
+/* .glitch {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    text-shadow:
+        -5px 0 0 #ff006e,
+         5px 0 0 #00f5d4;
+    animation: glitch-shift 0.4s steps(2) infinite;
+} */
+/* p{
+text-shadow:
+3px 3px 0 #c0392b,
+6px 6px 0 #d35400,
+9px 9px 0 #e67e22,
+12px 12px 0 #f39c12,
+15px 15px 0 #f1c40f,
+18px 18px 0 #e74c3c;} */
+
+/* generator, builder, preset, cheatsheet */ 

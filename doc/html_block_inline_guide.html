@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 블록 vs 인라인 - HTML 태그 쉽게 이해하기</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+        }
+        .block-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-left: 6px solid #ff6b6b;
+        }
+        .inline-section {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 6px solid #4ecdc4;
+        }
+        .compare-section {
+            background: #f8f9fa;
+            border: 2px dashed #764ba2;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .emoji { font-size: 1.3em; }
+        .tag-box {
+            display: inline-block;
+            background: white;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 25px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .tag-box:hover { transform: scale(1.1); }
+        .block-tag { color: #ff6b6b; border: 2px solid #ff6b6b; }
+        .inline-tag { color: #4ecdc4; border: 2px solid #4ecdc4; }
+        .example-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+        .example-box .comment { color: #75715e; }
+        .example-box .tag { color: #f92672; }
+        .example-box .attr { color: #a6e22e; }
+        .example-box .text { color: #e6db74; }
+        .visual-demo {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+        }
+        .demo-block {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            margin: 5px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .demo-inline {
+            background: #4ecdc4;
+            color: white;
+            padding: 8px 15px;
+            margin: 2px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .highlight {
+            background: yellow;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th {
+            background: #764ba2;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:hover { background: #f8f9fa; }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.8em; }
+            .tag-box { font-size: 0.9em; padding: 6px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 HTML 태그 쉽게 이해하기</h1>
+        <p class="subtitle">블록 레벨(Block) vs 인라인 레벨(Inline) 완벽 정리!</p>
+
+        <!-- 개념 설명 -->
+        <div class="section compare-section">
+            <h2><span class="emoji">🤔</span> 먼저 알아두기</h2>
+            <p>HTML 태그는 크게 <span class="highlight">두 가지 성격</span>을 가지고 있어요!</p>
+            <p>마치 <strong>혼자 한 줄을 다 차지하는 왕</strong>과 <strong>옆에 붙어 다니는 친구</strong> 같은 느낌이에요 😄</p>
+
+            <div class="tip-box">
+                <strong>💡 쉽게 외우는 법:</strong><br>
+                • 블록(Block) = "나 혼자 한 줄!" (떼놓은 닭처럼 혼자!)<br>
+                • 인라인(Inline) = "옆에 붙어도 돼!" (친구랑 나란히!)
+            </div>
+        </div>
+
+        <!-- 블록 레벨 -->
+        <div class="section block-section">
+            <h2><span class="emoji">🧱</span> 블록 레벨 태그 (Block Level)</h2>
+            <p><strong>특징:</strong> 무조건 한 줄을 다 차지해요! 옆에 아무것도 못 붙어요!</p>
+            <p>마치 <strong>혼자서 한 줄을 다 쓰는 주인공</strong> 같은 존재예요 🌟</p>
+
+            <div class="visual-demo">
+                <p style="margin-bottom:10px; color:#666;">👇 실제로 보면 이렇게 나와요:</p>
+                <div class="demo-block">&lt;div&gt; 태그</div>
+                <div class="demo-block">&lt;p&gt; 태그</div>
+                <div class="demo-block">&lt;h1&gt; 태그</div>
+            </div>
+
+            <h3 style="margin-top:20px; margin-bottom:10px;">📋 주요 블록 태그들</h3>
+            <div>
+                <span class="tag-box block-tag">&lt;div&gt;</span>
+                <span class="tag-box block-tag">&lt;p&gt;</span>
+                <span class="tag-box block-tag">&lt;h1&gt;~&lt;h6&gt;</span>
+                <span class="tag-box block-tag">&lt;ul&gt;</span>
+                <span class="tag-box block-tag">&lt;ol&gt;</span>
+                <span class="tag-box block-tag">&lt;li&gt;</span>
+                <span class="tag-box block-tag">&lt;header&gt;</span>
+                <span class="tag-box block-tag">&lt;footer&gt;</span>
+                <span class="tag-box block-tag">&lt;section&gt;</span>
+                <span class="tag-box block-tag">&lt;article&gt;</span>
+                <span class="tag-box block-tag">&lt;nav&gt;</span>
+                <span class="tag-box block-tag">&lt;aside&gt;</span>
+                <span class="tag-box block-tag">&lt;main&gt;</span>
+                <span class="tag-box block-tag">&lt;form&gt;</span>
+                <span class="tag-box block-tag">&lt;table&gt;</span>
+                <span class="tag-box block-tag">&lt;blockquote&gt;</span>
+                <span class="tag-box block-tag">&lt;pre&gt;</span>
+                <span class="tag-box block-tag">&lt;hr&gt;</span>
+            </div>
+
+            <div class="example-box">
+<span class="comment">&lt;!-- 블록 태그 예시 --&gt;</span>
+<span class="tag">&lt;div&gt;</span>나는 div! 한 줄 다 차지해!<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;p&gt;</span>나는 문단! 나도 한 줄!<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;h1&gt;</span>큰 제목! 나도 혼자!<span class="tag">&lt;/h1&gt;</span>
+            </div>
+        </div>
+
+        <!-- 인라인 레벨 -->
+        <div class="section inline-section">
+            <h2><span class="emoji">🔗</span> 인라인 레벨 태그 (Inline Level)</h2>
+            <p><strong>특징:</strong> 필요한 만큼만 공간을 쓰고, <strong>옆에 다른 태그가 붙을 수 있어요!</strong></p>
+            <p>마치 <strong>손잡고 옆으로 나란히 서는 친구들</strong> 같아요 👫</p>
+
+            <div class="visual-demo">
+                <p style="margin-bottom:10px; color:#666;">👇 실제로 보면 이렇게 나와요:</p>
+                <span class="demo-inline">&lt;span&gt;</span>
+                <span class="demo-inline">&lt;a&gt;</span>
+                <span class="demo-inline">&lt;strong&gt;</span>
+                <span class="demo-inline">&lt;em&gt;</span>
+                <span class="demo-inline">&lt;img&gt;</span>
+            </div>
+
+            <h3 style="margin-top:20px; margin-bottom:10px;">📋 주요 인라인 태그들</h3>
+            <div>
+                <span class="tag-box inline-tag">&lt;span&gt;</span>
+                <span class="tag-box inline-tag">&lt;a&gt;</span>
+                <span class="tag-box inline-tag">&lt;strong&gt;</span>
+                <span class="tag-box inline-tag">&lt;em&gt;</span>
+                <span class="tag-box inline-tag">&lt;img&gt;</span>
+                <span class="tag-box inline-tag">&lt;input&gt;</span>
+                <span class="tag-box inline-tag">&lt;label&gt;</span>
+                <span class="tag-box inline-tag">&lt;button&gt;</span>
+                <span class="tag-box inline-tag">&lt;textarea&gt;</span>
+                <span class="tag-box inline-tag">&lt;select&gt;</span>
+                <span class="tag-box inline-tag">&lt;br&gt;</span>
+                <span class="tag-box inline-tag">&lt;code&gt;</span>
+                <span class="tag-box inline-tag">&lt;mark&gt;</span>
+                <span class="tag-box inline-tag">&lt;small&gt;</span>
+                <span class="tag-box inline-tag">&lt;sub&gt;</span>
+                <span class="tag-box inline-tag">&lt;sup&gt;</span>
+                <span class="tag-box inline-tag">&lt;b&gt;</span>
+                <span class="tag-box inline-tag">&lt;i&gt;</span>
+                <span class="tag-box inline-tag">&lt;u&gt;</span>
+            </div>
+
+            <div class="example-box">
+<span class="comment">&lt;!-- 인라인 태그 예시 --&gt;</span>
+<span class="tag">&lt;span&gt;</span>나는 span<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="text">"#"</span><span class="tag">&gt;</span>링크도 옆에!<span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;strong&gt;</span>굵게도 옆에!<span class="tag">&lt;/strong&gt;</span>
+            </div>
+        </div>
+
+        <!-- 비교표 -->
+        <div class="section compare-section">
+            <h2><span class="emoji">⚖️</span> 한눈에 비교하기</h2>
+            <table>
+                <tr>
+                    <th>특징</th>
+                    <th>🧱 블록 레벨</th>
+                    <th>🔗 인라인 레벨</th>
+                </tr>
+                <tr>
+                    <td><strong>줄 바꿈</strong></td>
+                    <td>무조건 다음 줄로!</td>
+                    <td>옆에 계속 붙음!</td>
+                </tr>
+                <tr>
+                    <td><strong>너비</strong></td>
+                    <td>부모의 100% (한 줄 다!)</td>
+                    <td>내용물 크기만큼만!</td>
+                </tr>
+                <tr>
+                    <td><strong>높이</strong></td>
+                    <td>설정 가능 (height)</td>
+                    <td>기본적으로 설정 어려움</td>
+                </tr>
+                <tr>
+                    <td><strong>margin/padding</strong></td>
+                    <td>상하좌우 다 됨!</td>
+                    <td>좌우만 기본 적용!</td>
+                </tr>
+                <tr>
+                    <td><strong>안에 뭘 넣을 수 있나</strong></td>
+                    <td>블록 + 인라인 다 가능!</td>
+                    <td>보통 인라인만! (블록 넣으면 깨짐)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 실전 예제 -->
+        <div class="section compare-section">
+            <h2><span class="emoji">🛠️</span> 실전 예제</h2>
+            <p>아래 코드를 보면서 차이를 느껴봐요!</p>
+
+            <div class="example-box">
+<span class="comment">&lt;!-- 블록 안에 인라인 넣기 (OK!) --&gt;</span>
+<span class="tag">&lt;div&gt;</span>
+    나는 div(블록) 안에 
+    <span class="tag">&lt;span&gt;</span>span(인라인)<span class="tag">&lt;/span&gt;</span>을 넣었어!
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- 인라인 안에 블록 넣기 (NO!) --&gt;</span>
+<span class="comment">&lt;!-- 이렇게 하면 브라우저가 이상하게 표시할 수 있어요 --&gt;</span>
+<span class="tag">&lt;span&gt;</span>
+    <span class="tag">&lt;div&gt;</span>이렇게 하면 안 돼요!<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/span&gt;</span>
+            </div>
+
+            <div class="tip-box">
+                <strong>🎯 핵심 정리:</strong><br>
+                • 블록 태그는 <strong>집(컨테이너)</strong> 같은 역할 → 안에 뭐든 넣을 수 있음<br>
+                • 인라인 태그는 <strong>꾸미는 도구</strong> 같은 역할 → 글자를 예쁘게 만듦<br>
+                • <strong>div</strong>는 만능 블록 상자, <strong>span</strong>은 만능 인라인 꾸미개!
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🎉 이제 HTML 태그의 블록/인라인 개념 마스터!</p>
+            <p>만든 날짜: 2026년 5월 18일</p>
+        </div>
+    </div>
+</body>
+</html>

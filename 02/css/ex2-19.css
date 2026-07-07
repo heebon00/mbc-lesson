@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+/* <link>로 연결된 css 파일내의 @import 문  */
+@import url(./import.css);
+p{color: green;}
+/*  */
+/*  명시도  */
+/*  */
+*{color: blue;}
+h2#h2 {color: blueviolet;}
+h2.h2[title="점수"]{color: green;} /* 먼저 원하면 점수 +  h2 추가  */
+#h.h2[title="점수"]{color: black}
+/* 선언순서가 나중이면 먼저 노출 */ /* 원하면 점수 추가 + [title="점수"]  */

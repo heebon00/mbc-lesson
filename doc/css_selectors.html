@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 CSS 선택자: 마법의 화살표로 꾸미기!</title>
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #fffbe6;
+            color: #333;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        .magic-scroll {
+            background: white;
+            border: 5px dashed #ffcc00;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 { text-align: center; color: #ff6600; font-size: 2.5em; }
+        h2 { background: #ffcc00; display: inline-block; padding: 5px 15px; border-radius: 10px; }
+        .example {
+            background: #f4f4f4;
+            padding: 15px;
+            border-left: 5px solid #ccc;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .point { color: #e63946; font-weight: bold; }
+        
+        /* 실제로 보여줄 예시 스타일들 */
+        .preview-box { border: 2px solid #000; padding: 10px; margin-top: 10px; }
+        .blue-team { color: blue; font-weight: bold; }
+        #king { font-size: 2em; text-decoration: underline; color: purple; }
+        .btn:hover { background-color: pink; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="magic-scroll">
+        <h1>🪄 CSS 선택자 마법 학교</h1>
+        <p>안녕 잼민아! CSS 선택자는 <strong>"누구를 꾸밀지 찍어주는 화살표"</strong>라고 생각하면 돼. 화살표를 잘못 쏘면 엉뚱한 애가 꾸며지겠지? 하나씩 배워보자!</p>
+
+        <h2>1. 전체 선택자 (*) - "야! 다 모여!"</h2>
+        <p>문서에 있는 <strong>모든 태그</strong>를 한꺼번에 꾸밀 때 써.</p>
+        <div class="example">* { color: gray; }</div>
+        <p>👉 학교 운동장에 있는 모든 사람한테 "회색 옷 입어!"라고 외치는 거야.</p>
+
+        <h2>2. 태그 선택자 (이름) - "000 들어간 애들 다 나와!"</h2>
+        <p>특정 태그 이름(p, h1, div 등)을 가진 애들을 몽땅 꾸며.</p>
+        <div class="example">p { font-size: 15px; }</div>
+        <p>👉 "우리 학교에 있는 모든 <strong>p</strong>학생들은 키 15만큼 커져라!"</p>
+
+        <h2>3. 클래스 선택자 (.) - "반티 입은 사람들!"</h2>
+        <p>태그에 <code>class="이름"</code>이라고 적힌 애들을 꾸며. 앞에 <span class="point">점(.)</span>을 찍는 거 잊지 마!</p>
+        <div class="example">.blue-team { color: blue; }</div>
+        <p class="preview-box">
+            <span class="blue-team">나 블루팀!</span> <span>난 그냥 사람.</span> <span class="blue-team">나도 블루팀!</span>
+        </p>
+
+        <h2>4. 아이디 선택자 (#) - "너 딱 한 명만 이리와!"</h2>
+        <p>태그에 <code>id="이름"</code>이라고 딱 하나만 적힌 애를 꾸며. 앞에 <span class="point">샵(#)</span>을 붙여!</p>
+        <div class="example">#king { color: purple; }</div>
+        <p id="king">나는 이 구역의 킹이다 (id="king")</p>
+
+        <h2>5. 자손 선택자 (한 칸 띄우기) - "~안에 있는 ~"</h2>
+        <p>어떤 태그 <strong>안에 들어있는</strong> 다른 태그만 콕 집어.</p>
+        <div class="example">div p { color: green; }</div>
+        <p>👉 "<strong>교실(div)</strong> 안에 있는 <strong>학생(p)</strong>들만 초록색으로 변해라!" (교실 밖에 있는 학생은 안 변함)</p>
+
+        <h2>6. 호버 선택자 (:hover) - "마우스가 닿으면 변신!"</h2>
+        <p>마우스를 올렸을 때만 스타일이 뿅 나타나.</p>
+        <div class="example">button:hover { background: pink; }</div>
+        <button class="btn">여기 마우스 올려봐!</button>
+
+        <hr>
+        <h2 style="background: #e63946; color: white;">💡 마지막 꿀팁!</h2>
+        <p>
+            - <strong>#아이디</strong>: 세상에 단 하나뿐인 주인공 (주민번호)<br>
+            - <strong>.클래스</strong>: 여러 명이 같이 입는 팀복 (유니폼)<br>
+            - <strong>태그</strong>: 그냥 그 종류 전체 (생물종)
+        </p>
+        <p style="text-align: center; font-size: 1.5em;">이제 너도 CSS 마법사! 🧙‍♂️✨</p>
+    </div>
+</body>
+</html>

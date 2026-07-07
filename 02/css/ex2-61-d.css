@@ -1,0 +1,12 @@
+@charset "UTF-8";
+.green{position: absolute;
+top:50%;
+left:50%;}
+
+.parent{ 
+position: absolute;   /* 가장 마지막이 적용 */
+top: 50%;
+left: 50%;}
+body{position: fixed;
+top:0px;
+left: 0px}

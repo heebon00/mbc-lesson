@@ -1,0 +1,29 @@
+/* font family */
+#box1 h2{font-family: 'Times New Roman', Times, ;
+font-size: 2em;/* 1em=16px */
+font-weight: normal;
+font-weight: bold;}
+/* 글꼴: 글꼴1,글꼴2,서체계얄 */
+/* 속성값에 특수 문자 포함 시 따옴표로 "" 감싸야 함 */
+
+#box1 p{ 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 20px;
+font-weight: bold
+;}
+#box2 h2{
+    font-style: italic;
+    color: blue;
+}
+
+#box2 p{ 
+    font-variant: small-caps;
+    color: green;
+}
+#box3 h2{
+    /* 단축문법 : suger syntax */font:4em arial;
+    border: 1px solid rgb(12, 15, 207);
+}
+#box3 p{
+    font:small-caps 30px "Times NEW Roman";
+}

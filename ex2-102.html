@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .wrap{
+      width: 600px;
+      height: 300px;
+      position: relative;
+      background: #eee url(./02/img/ani2.png) no-repeat ;
+      background-position: 450px 170px;
+      background-size: 150px;}
+    
+      .box{
+      position: absolute;
+      background: url(./02/img/ani1.png) no-repeat;
+      width: 70px;
+      height: 80px;
+      offset-path:path("M1.00023 1.00024C2.93817 9.33356 9.33355 36.3878 18.7328 47.4925C25.6536 55.6691 63.9847 55.2638 89.4595 49.4789C103.271 46.3425 110.147 26.8917 120.448 21.039C141.829 8.89039 155.341 26.8142 165.37 33.5971C169.598 36.4568 173.461 39.7405 182.444 42.6475C214.463 53.0098 223.83 37.2018 238.345 27.5216C248.015 21.0728 260.613 20.3801 272.88 21.3394C283.691 22.1848 286.504 35.8452 291.029 45.8549C292.47 49.0409 296.155 51.9692 301.96 53.6165C325.63 60.3344 338.132 47.5506 348.19 41.7173C352.923 38.9726 360.768 37.8219 370.758 40.0603C390.463 44.4753 389.876 62.3181 394.712 70.4188C396.33 72.0467 398.248 73.3258 400.836 74.3045C403.423 75.2832 406.62 75.9227 409.915 78.5196");
+      animation: move 5s infinite ease-in-out;
+    }
+    @keyframes move {
+        0%{offset-distance: 0%;}
+        100%{offset-distance: 100%;}
+    }
+    </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="box"></div>
+</div>
+</body>
+</html>

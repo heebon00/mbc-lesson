@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>잼민이의 첫 HTML 공부 노트</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {                      
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            background-color: #e1f5fe;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .code-box {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+        .tag-desc {
+            margin-bottom: 15px;
+        }
+        .tag-name {
+            font-weight: bold;
+            color: #e67e22;
+            background-color: #fff3e0;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .tip-box {
+            background-color: #fff9db;
+            border-left: 5px solid #fab005;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏠잼민이의 HTML 기본 구조 공부 노트</h1>
+        <p style="text-align:center;">HTML은 웹사이트를 만드는 <strong>설계도</strong>예요!</p>
+
+        <h2>1. HTML의 기본 뼈대 (코드)</h2>
+        <div class="code-box">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;내 첫 웹사이트&lt;/title&gt;<br>
+&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;안녕, 반가워! 난, 잼민이야.&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;여기에 내용을 적어요.&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;
+        </div>
+
+        <h2>2. 각 부분이 하는 일</h2>
+        <div class="tag-desc">
+            <span class="tag-name">&lt;!DOCTYPE html&gt;</span> : "이건 최신 HTML 문서야!"라고 알려주는 시작 인사예요.
+        </div>
+        <div class="tag-desc">
+            <span class="tag-name">&lt;html&gt;</span> : 집의 전체 울타리예요. 모든 내용은 이 안에 들어가야 해요.
+        </div>
+        <div class="tag-desc">
+            <span class="tag-name">&lt;head&gt;</span> : 웹사이트의 정보(제목, 설정 등)를 담는 '두뇌' 역할이에요. 눈에는 안 보여요!
+        </div>
+        <div class="tag-desc">
+            <span class="tag-name">&lt;body&gt;</span> : 우리 눈에 보이는 진짜 내용(글, 그림, 버튼)이 사는 곳이에요.
+        </div>
+
+        <h2>3. 잼민이 코딩 꿀팁!</h2>
+        <div class="tip-box">
+            <ul>
+                <li><strong>열고 닫기:</strong> 태그는 시작했으면 반드시 <code>&lt;/태그&gt;</code>로 닫아줘야 해요. (뚜껑 닫기!)</li>
+                <li><strong>들여쓰기:</strong> Tab 키를 눌러서 안으로 밀어 쓰면 코드가 훨씬 예뻐 보여요.</li>
+            </ul>
+        </div>
+
+        <footer>
+            멋진 웹 개발자가 될 너를 응원해! ✨
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini CLI 명령어 가이드</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #5f6368;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #202124;
+            --border-color: #dadce0;
+            --code-bg: #f1f3f4;
+            --code-color: #d93025;
+        }
+        body {
+            font-family: 'Noto Sans KR', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .description {
+            color: var(--secondary-color);
+            font-size: 1.1em;
+        }
+        .category {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .category-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: #f1f3f4;
+            font-weight: 600;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        code {
+            background-color: var(--code-bg);
+            color: var(--code-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--secondary-color);
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            th, td {
+                padding: 10px 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gemini CLI 명령어 가이드</h1>
+            <p class="description">Gemini CLI에서 사용할 수 있는 주요 슬래시 명령어(/) 일람입니다.</p>
+        </header>
+
+        <!-- General & Help Commands -->
+        <div class="category">
+            <div class="category-header">일반 및 도움말</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">명령어</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>/about</code></td><td>현재 CLI 버전 및 환경 정보를 표시합니다.</td></tr>
+                    <tr><td><code>/help</code> (또는 <code>/?</code>)</td><td>사용 가능한 명령어 목록과 기본 사용법을 보여줍니다.</td></tr>
+                    <tr><td><code>/docs</code></td><td>브라우저에서 Gemini CLI 문서를 엽니다.</td></tr>
+                    <tr><td><code>/privacy</code></td><td>개인정보 보호 고지 및 데이터 수집 설정을 표시합니다.</td></tr>
+                    <tr><td><code>/upgrade</code></td><td>Gemini Code Assist 업그레이드 페이지를 엽니다.</td></tr>
+                    <tr><td><code>/bug &lt;headline&gt;</code></td><td>제공된 제목으로 GitHub에 이슈를 제보합니다.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Session & Context Management -->
+        <div class="category">
+            <div class="category-header">세션 및 컨텍스트 관리</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">명령어</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>/chat</code> / <code>/resume</code></td><td>대화 체크포인트 및 세션 브라우징을 관리합니다. (list, save, share 등)</td></tr>
+                    <tr><td><code>/rewind</code></td><td>히스토리를 뒤로 돌려 대화 상태나 파일 변경 사항을 되돌립니다.</td></tr>
+                    <tr><td><code>/restore [id]</code></td><td>특정 도구 실행 전의 상태로 파일을 복구합니다.</td></tr>
+                    <tr><td><code>/clear</code></td><td>터미널 화면과 세션 히스토리를 지웁니다.</td></tr>
+                    <tr><td><code>/compress</code></td><td>대화 컨텍스트를 요약으로 대체하여 토큰 사용량을 최적화합니다.</td></tr>
+                    <tr><td><code>/quit</code> (또는 <code>/exit</code>)</td><td>CLI를 종료합니다. <code>--delete</code> 옵션으로 히스토리 삭제가 가능합니다.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tools, Extensions & Agents -->
+        <div class="category">
+            <div class="category-header">도구, 확장 및 에이전트</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">명령어</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>/tools</code></td><td>사용 가능한 도구 목록을 나열합니다. <code>desc</code>를 붙이면 상세 설명을 봅니다.</td></tr>
+                    <tr><td><code>/extensions</code></td><td>CLI 확장 기능을 관리합니다 (설치, 업데이트, 목록, 활성화 등).</td></tr>
+                    <tr><td><code>/mcp</code></td><td>Model Context Protocol(MCP) 서버를 관리합니다.</td></tr>
+                    <tr><td><code>/skills</code></td><td>특수 워크플로우를 위한 에이전트 기술(Skills)을 관리합니다.</td></tr>
+                    <tr><td><code>/agents</code></td><td>멀티 에이전트 작업을 위한 로컬 및 원격 서브 에이전트를 관리합니다.</td></tr>
+                    <tr><td><code>/commands</code></td><td><code>.toml</code> 파일에서 로드된 사용자 정의 명령어를 관리합니다.</td></tr>
+                    <tr><td><code>/hooks</code></td><td>CLI 동작을 가로채고 커스터마이징하는 라이프사이클 훅을 관리합니다.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Configuration & UI -->
+        <div class="category">
+            <div class="category-header">설정 및 UI</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">명령어</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>/settings</code></td><td>대화형 설정 에디터를 엽니다.</td></tr>
+                    <tr><td><code>/theme</code></td><td>CLI의 시각적 테마를 변경하는 대화창을 엽니다.</td></tr>
+                    <tr><td><code>/model</code></td><td>활성 AI 모델을 설정합니다 (예: <code>set &lt;model-name&gt;</code>).</td></tr>
+                    <tr><td><code>/editor</code></td><td>파일 작업에 사용할 기본 에디터를 선택합니다.</td></tr>
+                    <tr><td><code>/vim</code></td><td>입력 영역에서 Vim 스타일의 탐색 및 편집 모드를 토글합니다.</td></tr>
+                    <tr><td><code>/terminal-setup</code></td><td>여러 줄 입력을 위한 터미널 키바인딩을 설정합니다.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Project & Workspace Control -->
+        <div class="category">
+            <div class="category-header">프로젝트 및 워크스페이스 제어</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">명령어</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>/directory</code> (또는 <code>/dir</code>)</td><td>다중 디렉토리 워크스페이스를 관리합니다 (디렉토리 추가/표시).</td></tr>
+                    <tr><td><code>/memory</code></td><td><code>GEMINI.md</code> 파일의 계층적 지침 컨텍스트를 관리합니다.</td></tr>
+                    <tr><td><code>/init</code></td><td>프로젝트별 <code>GEMINI.md</code> 컨텍스트 파일을 생성합니다.</td></tr>
+                    <tr><td><code>/permissions</code></td><td>폴더 신뢰 설정 및 권한을 관리합니다.</td></tr>
+                    <tr><td><code>/plan</code></td><td>계획 모드(읽기 전용)로 전환하여 생성된 작업 계획을 검토합니다.</td></tr>
+                    <tr><td><code>/policies</code></td><td>활성 보안 및 실행 정책 목록을 보여줍니다.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Utilities -->
+        <div class="category">
+            <div class="category-header">유틸리티</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">명령어</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>/stats</code></td><td>세션, 모델(토큰 수), 도구 사용 통계를 상세히 표시합니다.</td></tr>
+                    <tr><td><code>/shells</code> (또는 <code>/bashes</code>)</td><td>백그라운드 쉘 프로세스 뷰를 토글합니다.</td></tr>
+                    <tr><td><code>/copy</code></td><td>마지막 AI 응답을 시스템 클립보드에 복사합니다.</td></tr>
+                    <tr><td><code>/ide</code></td><td>IDE 통합 및 컴패니언 설치를 관리합니다.</td></tr>
+                    <tr><td><code>/setup-github</code></td><td>PR 및 이슈 자동 처리를 위한 GitHub Actions를 설정합니다.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Gemini CLI User Guide | 작성일: 2026-05-20
+        </div>
+    </div>
+</body>
+</html>

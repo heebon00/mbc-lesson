@@ -1,0 +1,8 @@
+@charset "UTF-8";
+@import url(/font.css);
+p{padding: 10px 50px;
+text-indent: 20px;}
+
+.class{
+    text-indent: -20px;
+}

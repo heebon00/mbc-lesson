@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 문서 레이아웃</title>
+    <!-- css는 head 영역에서만 -->
+    <style>
+      /* section과 footer 외에 header도 wrap 안에 있다면 너비를 맞추는 것이 좋습니다 */
+      .wrap {
+        width: 300px;
+        margin: auto;
+        background-color: rgb(117, 228, 27);
+      }
+      header,
+      section,
+      footer {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <!-- 헤드 태그 닫기 추가 - 잘하셨습니다! -->
+  <body>
+    <div class="wrap">
+      <!-- 주석에 써주신 .,#은 CSS 선택자(Selector) 기호입니다 -->
+      <!-- id = 기능용(#) / class = 디자인용(.) -->
+
+      <header>헤더</header>
+      <!-- 시멘틱 태그 -->
+      <!-- 블럭 레벨 요소는 기본적으로 가로 너비를 다 차지하며 줄바꿈이 일어납니다 -->
+      <section>섹션</section>
+      <footer>푸터</footer>
+    </div>
+  </body>
+</html>

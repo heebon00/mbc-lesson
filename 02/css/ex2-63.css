@@ -1,0 +1,8 @@
+.flex-container{
+        display: flex;   /* 기본값 가로  */
+background: #eee;
+flex-direction: row;
+/* flex-direction: row-reverse; */
+    }
+    .flex-container1{display: flex;
+    flex-direction: column;}   /* 모두를 감싸는 부모가 필요 (div) */

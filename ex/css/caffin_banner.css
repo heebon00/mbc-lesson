@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/* 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* 배너 컨테이너 */
+.banner-container {
+    position: relative;
+    width: 1500px;
+    height: 500px;
+    background-color: #C01818;
+    overflow: hidden;
+}
+
+/* 데코레이션 박스 공통 */
+.box {
+    position: absolute;
+    border: 1px solid #000;
+}
+
+/* 상단 박스 */
+.top-box {
+    left: 382px;
+    top: 40px;
+    width: 736px;
+    height: 314px;
+}
+
+/* 하단 박스 */
+.bottom-box {
+    left: 382px;
+    top: 353px;
+    width: 735px;
+    height: 107px;
+    background-color: #000;
+}
+
+/* 좌측 박스 (이미지) */
+.left-box {
+    left: 40px;
+    top: 40px;
+    width: 343px;
+    height: 420px;
+    background-image: url('../img/caffin_left.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 우측 박스 (이미지) */
+.right-box {
+    left: 1117px;
+    top: 40px;
+    width: 343px;
+    height: 420px;
+    background-image: url('../img/caffin_right.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 텍스트 컨테이너 공통 */
+.text-box {
+    position: absolute;
+    width: 654px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 헤드라인 (CAFFIN CAFE) */
+.headline {
+    left: 423px;
+    top: 74px;
+    height: 245px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    letter-spacing: -2.44px;
+}
+
+.headline .caffin {
+    font-size: 70px;
+    line-height: 0.9;
+  line-height:100px;
+}
+
+.headline .caffe {
+    font-size: 36px;
+    line-height: 0.9;
+    color: rgb(26, 121, 26);
+}
+
+.headline .cafe {
+    font-size: 60px;
+    line-height: 0.9;
+line-height:100px;
+}
+
+/* 위치/설명 정보 */
+.location {
+    left: 423px;
+    top: 376px;
+    height: 60px;
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', serif; /* 명조 계열 */
+    letter-spacing: 2.2px;
+}
+
+.location .open {
+    font-size: 36px;
+    line-height: 0.9;
+    line-height:50px;
+}
+
+.location .price {
+    font-size: 36px;
+    line-height: 0.9;
+}

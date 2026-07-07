@@ -1,0 +1,17 @@
+@charset "UTF-8";
+@import url(reset.css);
+body{height: 200vh;}
+.container{
+    width: 500px;
+height: 800px;
+background: #eee;
+padding: 50px;}
+.box{
+    width: 200px;
+    height: 200px;
+    background: orange;
+    margin-bottom: 120px;
+}
+.sticky{position: sticky;  /* 움직이기를 원할때는 부모요소 body에서 조절  */
+top: 300px;
+background-color: aqua;}

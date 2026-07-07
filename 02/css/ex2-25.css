@@ -1,0 +1,6 @@
+@charset "UTF-8";
+*{
+    margin: 0px;
+    padding:0px;}
+    p.letter2{letter-spacing: 18px;}
+   p.letter3 {word-spacing: 187px;}

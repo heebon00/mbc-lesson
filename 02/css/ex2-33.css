@@ -1,0 +1,28 @@
+@charset "UTF-8";
+@import url(/font.css);
+
+/* 불릿기호 문자 */
+a{display: block;
+margin: 10px;
+text-decoration: none;
+color: darkblues;}
+.notice a h3{width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.notice a h3 {
+    border: 1px solid;
+}
+.notice li:nth-of-type(3) a h3 {/*  박스에서 벗어나도 보임 */
+    overflow: visible; 
+    overflow-x: scroll;/* 방향 선택시 -x/-y */
+    overflow: hidden;
+   display:-webkit-box;
+   -webkit-line-clamp: 2;
+   text-overflow: ellipsis;
+   -webkit-box-orient: vertical;
+white-space: normal;
+width: 100px;
+} 
+

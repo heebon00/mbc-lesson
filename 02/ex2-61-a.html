@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position absolute & relative</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- relative -->
+ <!--  <link rel="stylesheet" href="../ex2-61-a.css"> -->
+   <!-- absolute -->
+<!--     <link rel="stylesheet" href="../ex2-61-b.css"> -->
+     <!-- relative & absolute -->
+     <!--  <link rel="stylesheet" href="../ex2-61-c.css"> -->
+       <link rel="stylesheet" href="../ex2-61-d.css">
+  <style>
+    .parent {
+      width: 300px;
+      height: 300px;
+      background: #eee;
+    }
+
+    .child {
+      width: 100px;
+      height: 100px;
+      background:rgba(255, 0,0, 0.5);
+      border: 8px solid;
+      box-sizing: border-box;
+    }
+
+    .child:nth-child(2) {
+      background: rgba(90, 151, 90, 0.5);
+    }
+
+    .child:nth-child(3) {
+      background: rgba(10, 10, 212, 0.418);
+    }
+
+    .child:before {
+      font-size: 32px;
+      color: white;
+    }
+
+    .child:nth-child(1):before {
+      content: "1";
+    }
+
+    .child:nth-child(2):before {
+      content: "2";
+    }
+
+    .child:nth-child(3):before {
+      content: "3";
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child red"></div>
+    <div class="child green"></div>
+    <div class="child blue"></div>
+
+  </div>
+</body>
+</html>

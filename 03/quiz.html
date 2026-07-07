@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <p>신장(cm) <input type="number" id="height" name="height"></p>
+     <p>체중(kg): <input type="number" id="weight" name="weight"></p>
+<button onclick="check()"> 결과보여주세요 </button>   
+<hr>
+<p id='result'></p>
+<script>
+//     function check(){
+//     const h = height.value;
+//    const w = weight.value; 
+//    const ideale = (h-100)*0.9;
+//    result.textContent = w >= ideale ? "정상" : "비정상";
+// }
+//# 속성이 있는 요소는 바로 변수로 사용가능 > 권장X 
+function check(){
+  const h = height.value;
+  const w = weight.value; 
+  const ideale = (h-100)*0.9;
+  if (w > idele) {
+    result.textContent = "비정상";
+  } 
+  if (w == ideale) {
+    result.textContent = "정상";
+  }
+  if (w < ideale) {
+    result.textContent = "몸무게 미달";
+  }}
+</script>
+</body>
+</html>

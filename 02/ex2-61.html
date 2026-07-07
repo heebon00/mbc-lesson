@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마스크</title>
+    <style>
+        .fade{height: 300px;
+        background: url(../02/img/lotus.png) center / cover no-repeat; 
+        /* vender prefix:제조사 접두어- 표준 확정전 브라우저에서 개발 신기능 */
+        -webkit-mask-image:linear-gradient(to bottom,black 60%,transparent);
+        mask-image:linear-gradient(to bottom,black 60%,transparent); /* 항상 마지막에 기본형 작성 필수  */}
+   /* webkit :크롬,엣지, 사파리
+   o: 구 오페라
+   moz: 파잉폭스 */
+    </style>
+</head>
+<body>
+    <div class="fade"></div>
+</body>
+</html>

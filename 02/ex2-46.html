@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>배경이미지의 영역</title>
+<style>
+
+div{width: 550px;
+    border: brown double #000;
+padding: 25px;
+margin: 20px auto;
+background: aqua;
+background: aquamarine url(../02/img/ani_spade.png);
+background-size: 70px;}
+.ori1{background-origin: border-box;}
+.ori2{background-origin: padding-box;}
+.ori3{background-origin: content-box;
+    color: transparent;
+    background-clip: text;
+    }  /* 내용안에 이미지  */
+</style>
+</head>
+<body>
+    <div class="clip1">It's impossible not only starting good but also keeping it firm!!</div>
+    <div class="clip2">It's impossible not only starting good but also keeping it firm!!</div>
+    <div class="clip3">It's impossible not only starting good but also keeping it firm!!</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opacity_불투명도</title>
+    <style>
+        body{background: url(./img/bg_grid.gif);}
+        div{background: yellow;
+        margin-bottom: 10px;}
+.light{opacity:0.2;}  /* 단일 속성 */
+.medium{background: rgba(255,255,0, 0.2);}
+.heavy{filter: opacity(0.5);} /* opacity 값 */
+.heavy:hover{filter: opacity(1) blur(50px) ;}
+    </style>
+</head>
+<body>
+		<div class="light">겨우 보이는 글</div>
+		<div class="medium">좀 더 잘 보이는 글</div>
+		<div class="heavy">쉽게 보이는 글</div>
+</body>
+</html>
+</body>
+</html>

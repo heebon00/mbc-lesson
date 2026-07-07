@@ -1,0 +1,7 @@
+@charset "UTF-8";
+p:before{content: '💛';
+font-size: 2em;
+display: block;}
+
+p::after{content: '요고추가';
+font-size: 2em;}

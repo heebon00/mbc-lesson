@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI 계산기</title>
+</head>
+<body>
+  <form action="#" method="post">
+    <label for="age">나이:</label><input type="number" id="age" name="age">
+    <button type="submit">전송</button>
+  </form>
+  <hr>
+  <div class="result"></div>
+  <script>
+    let form = document.querySelector('form'),
+      age = document.querySelector('#age');
+      result = document.querySelector('.result');
+
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+  let n= Number(age.value);
+
+    //   if (n >= 20 && n < 30) { //20~29
+    //     document.querySelector('.result').innerText += "통과,"
+    //   } else {
+    //     document.querySelector('.result').innerText += "통과과,"
+    //   }
+
+    
+    //   if (n <= 30 ) { //0~29
+    //    result.innerHTML += "1차 통과0~30, <br>"
+    //   } 
+    //   else if (n < 40) // n이 40보다 크거나 작거나,  
+    //   {  result.innerHTML += "2차 통과31~39,<br>"}
+      
+    //   else {
+    //     {  result.innerHTML += "바통과,<br>"}
+          if (n < 20 ) { //0~19
+       result.innerHTML += "1차 통과0~19, <br>"
+      } 
+      else if (n < 30) // n이 20~29 
+      {  result.innerHTML += "2차 통과20~29,<br>"}
+      
+      else {
+        {  result.innerHTML += "바통과,<br>"}
+    }})
+
+</script>
+</body>
+</html>

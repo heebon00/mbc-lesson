@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 이름표(ID) vs 반티(Class) 완벽 정리!</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 { color: #ff4500; text-align: center; }
+        h2 { color: #2e8b57; border-bottom: 2px solid #2e8b57; padding-bottom: 5px; }
+        
+        /* [중요] ID는 # 을 붙여요! 딱 한 명만 쓸 수 있는 이름표! */
+        #super-hero {
+            background-color: gold;
+            font-weight: bold;
+            border: 3px solid red;
+            padding: 5px;
+        }
+
+        /* [중요] Class는 . 을 붙여요! 여러 명이 같이 입는 반티! */
+        .blue-team {
+            color: white;
+            background-color: blue;
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        .highlight {
+            text-decoration: underline;
+            font-style: italic;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>😎 CSS 이름표(ID) vs 반티(Class) 한방 정리</h1>
+
+        <div class="box">
+            <h2>1. ID (아이디) - "#" 기호 사용</h2>
+            <p><strong>비유: 내 이름표 / 주민등록번호</strong></p>
+            <ul>
+                <li>우리 학교에 내 이름이랑 똑같은 애가 한 명 더 있으면 헷갈리겠지?</li>
+                <li>그래서 ID는 HTML 문서 안에서 <strong>딱 한 군데만</strong> 쓸 수 있어!</li>
+                <li>CSS에서는 <code>#</code>을 이름 앞에 붙여서 꾸며줘.</li>
+            </ul>
+            <p id="super-hero">나만 골드 이름표야! (id="super-hero")</p>
+        </div>
+
+        <div class="box">
+            <h2>2. Class (클래스) - "." 기호 사용</h2>
+            <p><strong>비유: 우리 반 반티 / 축구팀 유니폼</strong></p>
+            <ul>
+                <li>우리 반 친구들 다 같이 똑같은 옷 입을 수 있지?</li>
+                <li>Class는 <strong>여러 명(태그)</strong>이 한꺼번에 똑같은 스타일을 입고 싶을 때 써!</li>
+                <li>CSS에서는 <code>.</code>을 이름 앞에 붙여서 꾸며줘.</li>
+            </ul>
+            <p class="blue-team">나는 파란팀! (class="blue-team")</p>
+            <p class="blue-team">나도 파란팀! (class="blue-team")</p>
+            <p class="blue-team">우리 다 같이 파란색! (class="blue-team")</p>
+        </div>
+
+        <div class="box">
+            <h2>3. 잼민이를 위한 핵심 요약!</h2>
+            <table border="1" style="width:100%; border-collapse: collapse; text-align: center;">
+                <tr style="background-color: #eee;">
+                    <th>구분</th>
+                    <th>ID (아이디)</th>
+                    <th>Class (클래스)</th>
+                </tr>
+                <tr>
+                    <td>기호</td>
+                    <td># (샵)</td>
+                    <td>. (점)</td>
+                </tr>
+                <tr>
+                    <td>개수</td>
+                    <td>한 번만 가능 (유니크)</td>
+                    <td>여러 번 가능 (중복)</td>
+                </tr>
+                <tr>
+                    <td>언제 써?</td>
+                    <td>진짜 특별한 놈 하나만 꾸밀 때</td>
+                    <td>여러 놈을 한꺼번에 꾸밀 때</td>
+                </tr>
+            </table>
+        </div>
+
+        <p style="text-align: center; color: #888;">이제 안 헷갈리겠지? 열공해! 🔥</p>
+    </div>
+</body>
+</html>
