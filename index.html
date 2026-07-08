@@ -53,7 +53,7 @@
         }
         .folder-summary {
           margin: 2rem 0 1.5rem;
-          padding: 1.3rem;
+          padding: 1.5rem;
           border-radius: 24px;
           background: linear-gradient(135deg, #fff8e1 0%, #fce4ec 100%);
           box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -65,37 +65,71 @@
         .folder-summary p {
           margin-top: 0;
           color: #6b4f5b;
+          margin-bottom: 1.5rem;
         }
-        .recent-list {
-          list-style: none;
-          padding: 0;
-          margin: 1rem 0 0;
+        .month-grid {
           display: grid;
-          gap: 0.7rem;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1.2rem;
         }
-        .recent-item {
+        .month-card {
           display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          gap: 0.6rem;
-          padding: 0.8rem 1rem;
-          border-radius: 14px;
-          background: rgba(255,255,255,0.95);
-          border: 1px solid rgba(162,24,91,0.12);
-        }
-        .recent-date {
-          color: #a2185b;
-          font-weight: 700;
-          min-width: 110px;
-        }
-        .recent-link {
-          color: #d81b60;
+          flex-direction: column;
+          padding: 1.5rem;
+          background: rgba(255, 255, 255, 0.95);
+          border: 1px solid rgba(162, 24, 91, 0.15);
+          border-radius: 20px;
           text-decoration: none;
-          font-weight: 600;
+          color: #333;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+          position: relative;
+          overflow: hidden;
         }
-        .recent-link:hover {
-          color: #7b1fa2;
-          text-decoration: underline;
+        .month-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 25px rgba(162, 24, 91, 0.12);
+          border-color: #d81b60;
+          background: #fff;
+        }
+        .month-card::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 4px;
+          height: 100%;
+          background: #d81b60;
+          opacity: 0.7;
+        }
+        .month-number {
+          font-size: 2.2rem;
+          font-weight: 800;
+          color: #d81b60;
+          line-height: 1;
+          margin-bottom: 0.5rem;
+          font-family: "Dongle", sans-serif;
+        }
+        .month-name {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #a2185b;
+          margin-bottom: 0.3rem;
+        }
+        .month-desc {
+          font-size: 0.85rem;
+          color: #666;
+          margin-bottom: 1rem;
+          line-height: 1.3;
+        }
+        .file-count {
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: #888;
+          align-self: flex-start;
+          background: #f5f5f5;
+          padding: 0.2rem 0.6rem;
+          border-radius: 20px;
         }
         </style>
   </head>
@@ -127,25 +161,34 @@
       </section><hr>
       <!-- 구분선 -->
       <section class="folder-summary">
-        <h2>�️ 최근 저장한 파일</h2>
-        <p>저장 날짜 기준으로 최신 순으로 정리한 링크입니다.</p>
-        <ul class="recent-list">
-          <li class="recent-item"><span class="recent-date">2026-07-07</span><a class="recent-link" href="index.html">index.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-07</span><a class="recent-link" href="03/function.js">03/function.js</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-07</span><a class="recent-link" href="03/함수.html">03/함수.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-07</span><a class="recent-link" href="03/params-default.js">03/params-default.js</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-07</span><a class="recent-link" href="03/prams2.js">03/prams2.js</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-07</span><a class="recent-link" href="03/ex3-30.html">03/ex3-30.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-06</span><a class="recent-link" href="03/ex3-29.html">03/ex3-29.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-06</span><a class="recent-link" href="03/ex3-28.html">03/ex3-28.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-03</span><a class="recent-link" href="03/ex3-27.html">03/ex3-27.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-03</span><a class="recent-link" href="03/ex3-26.htm">03/ex3-26.htm</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-03</span><a class="recent-link" href="03/ex3-25.html">03/ex3-25.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-03</span><a class="recent-link" href="03/ex3-24.html">03/ex3-24.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-03</span><a class="recent-link" href="03/style.css">03/style.css</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-03</span><a class="recent-link" href="03/es3-23.html">03/es3-23.html</a></li>
-          <li class="recent-item"><span class="recent-date">2026-07-03</span><a class="recent-link" href="03/ex3-22.html">03/ex3-22.html</a></li>
-        </ul>
+        <h2>📅 월별 학습 파일 목록</h2>
+        <p>학습한 파일들을 월별(4월 ~ 7월)로 분류하여 모아둔 아카이브입니다.</p>
+        <div class="month-grid">
+          <a href="01/list.html" class="month-card">
+            <span class="month-number">04</span>
+            <span class="month-name">4월 학습 기록</span>
+            <span class="month-desc">HTML 기본 구조 및 태그 실습</span>
+            <span class="file-count">파일 22개</span>
+          </a>
+          <a href="02/list.html" class="month-card">
+            <span class="month-number">05</span>
+            <span class="month-name">5월 학습 기록</span>
+            <span class="month-desc">CSS 레이아웃 및 선택자 실습</span>
+            <span class="file-count">파일 105개</span>
+          </a>
+          <a href="03/list.html" class="month-card">
+            <span class="month-number">06</span>
+            <span class="month-name">6월 학습 기록</span>
+            <span class="month-desc">JavaScript 기초 및 함수 실습</span>
+            <span class="file-count">파일 33개</span>
+          </a>
+          <a href="04/list.html" class="month-card">
+            <span class="month-number">07</span>
+            <span class="month-name">7월 학습 기록</span>
+            <span class="month-desc">현재 진행 중인 프로젝트 및 프롬프트</span>
+            <span class="file-count">파일 1개</span>
+          </a>
+        </div>
       </section>
 
       <!-- 학습 기록 및 아카이브 섹션 -->

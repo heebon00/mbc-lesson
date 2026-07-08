@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>💚 5월 학습 아카이브 💚</title>
+    <link rel="icon" type="image/svg+xml" href="../svg/facicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Malgun Gothic', sans-serif;
+        background-color: #fafafa;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #82EC21;
+        padding-bottom: 10px;
+      }
+      .home-btn {
+        text-decoration: none;
+        font-size: 30px;
+        transition: transform 0.2s ease;
+      }
+      .home-btn:hover {
+        transform: scale(1.2);
+      }
+      h1 {
+        font-family: "Dongle", sans-serif;
+        font-size: 50px;
+        margin: 0;
+        color: #a2185b;
+      }
+      .search-box {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+      }
+      .search-input {
+        flex: 1;
+        padding: 12px 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(162,24,91,0.2);
+        outline: none;
+        font-size: 16px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        transition: border-color 0.3s;
+      }
+      .search-input:focus {
+        border-color: #d81b60;
+      }
+      .file-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+      }
+      .file-card {
+        background: #fff;
+        border: 1px solid rgba(162,24,91,0.1);
+        border-radius: 16px;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: #333;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        transition: all 0.25s ease;
+      }
+      .file-card:hover {
+        transform: translateY(-3px);
+        border-color: #d81b60;
+        box-shadow: 0 8px 18px rgba(162,24,91,0.1);
+      }
+      .file-icon {
+        font-size: 24px;
+        color: #d81b60;
+      }
+      .file-info {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .file-name {
+        font-weight: 600;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .file-type {
+        font-size: 12px;
+        color: #888;
+        margin-top: 2px;
+      }
+      .no-results {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 40px;
+        color: #888;
+        font-size: 16px;
+      }
+      footer {
+        margin-top: 50px;
+        text-align: center;
+        color: #888;
+        font-size: 14px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html" class="home-btn" title="메인으로">💚</a>
+      <h1>5월 학습 아카이브 (02 폴더)</h1>
+    </header>
+
+    <main>
+      <div class="search-box">
+        <input type="text" id="search" class="search-input" placeholder="파일 이름 검색..." autocomplete="off">
+      </div>
+
+      <div class="file-grid" id="fileGrid">
+        <!-- JavaScript에 의해 파일 목록이 동적으로 렌더링됩니다 -->
+      </div>
+    </main>
+
+    <footer>
+      본즈니홈페이지 아카이브 끝
+    </footer>
+
+    <script>
+      const files = [
+        "00.html", "bubble.html", "ex2-00.html", "ex2-1.html", "ex2-5.html", "ex2-6.html", "ex2-7.html", "ex2-8.html", "ex2-9.html", "ex2-10.html", 
+        "ex2-11.html", "ex2-12.html", "ex2-13.html", "ex2-14.html", "ex2-14-1.html", "ex2-15.html", "ex2-16.html", "ex2-17.html", "ex2-18.html", "ex2-19.html", 
+        "ex2-20.html", "ex2-21.html", "ex2-22.html", "ex2-24.html", "ex2-25.html", "ex2-26.html", "ex2-28.html", "ex2-29.html", "ex2-30.html", "ex2-31.html", 
+        "ex2-32.html", "ex2-33.html", "ex2-34.html", "ex2-35.html", "ex2-36.html", "ex2-37.html", "ex2-38.html", "ex2-39.html", "ex2-40.html", "ex2-41.html", 
+        "ex2-42.html", "ex2-43.html", "ex2-45.html", "ex2-46.html", "ex2-47.html", "ex2-49.html", "ex2-50.html", "ex2-51.html", "ex2-52.html", "ex2-53.html", 
+        "ex2-54.html", "ex2-55.html", "ex2-56.html", "ex2-57.html", "ex2-58.html", "ex2-59.html", "ex2-60.html", "ex2-60-a.html", "ex2-61.html", "ex2-61-a.html", 
+        "ex2-62.html", "ex2-63.html", "ex2-64.html", "ex2-65.html", "ex2-66.html", "ex2-67.html", "ex2-68.html", "ex2-69.html", "ex2-70.html", "ex2-71.html", 
+        "ex2-72.html", "ex2-76.html", "ex2-77.html", "ex2-79.html", "ex2-80.html", "ex2-81.html", "ex2-82.html", "ex2-83.html", "ex2-84.html", "ex2-85.html", 
+        "ex2-86.html", "ex2-87.html", "ex2-88.html", "ex2-89.html", "ex2-90.html", "ex2-91.html", "ex2-92.html", "ex2-93.html", "ex2-94.html", "ex2-95.html", 
+        "ex2-96.html", "ex2-97.html", "ex2-98.html", "ex2-99.html", "ex2-100.html", "ex2-101.html", "ex2-102.html", "layout-1.html", "quiz.html", "quiz2.html", 
+        "quiz3.html", "quiz3-1.html", "quiz4.html", "quiz5.html", "quiz6.html"
+      ];
+
+      const fileGrid = document.getElementById('fileGrid');
+      const searchInput = document.getElementById('search');
+
+      function renderFiles(filterText = "") {
+        fileGrid.innerHTML = "";
+        const query = filterText.toLowerCase();
+        let visibleCount = 0;
+
+        files.forEach(file => {
+          if (file.toLowerCase().includes(query)) {
+            const card = document.createElement('a');
+            card.href = file;
+            card.className = 'file-card';
+            
+            // 파일 아이콘 결정
+            let icon = "📄";
+            let typeText = "HTML Document";
+            if (file.endsWith('.js')) {
+              icon = "⚙️";
+              typeText = "JavaScript Source";
+            } else if (file.endsWith('.css')) {
+              icon = "🎨";
+              typeText = "Style Sheet";
+            }
+
+            card.innerHTML = `
+              <span class="file-icon">${icon}</span>
+              <div class="file-info">
+                <span class="file-name">${file}</span>
+                <span class="file-type">${typeText}</span>
+              </div>
+            `;
+            fileGrid.appendChild(card);
+            visibleCount++;
+          }
+        });
+
+        if (visibleCount === 0) {
+          const noResultsMsg = document.createElement('div');
+          noResultsMsg.className = 'no-results';
+          noResultsMsg.textContent = '검색 결과가 없습니다.';
+          fileGrid.appendChild(noResultsMsg);
+        }
+      }
+
+      // 초기 렌더링
+      renderFiles();
+
+      // 검색 이벤트 바인딩
+      searchInput.addEventListener('input', function() {
+        renderFiles(this.value);
+      });
+    </script>
+  </body>
+</html>
