@@ -62,7 +62,7 @@
       }
       .file-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: 15px;
       }
       .file-card {
@@ -91,6 +91,7 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        flex-grow: 1;
       }
       .file-name {
         font-weight: 600;
@@ -99,10 +100,23 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      .file-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 4px;
+      }
       .file-type {
-        font-size: 12px;
+        font-size: 11px;
         color: #888;
-        margin-top: 2px;
+      }
+      .folder-badge {
+        font-size: 10px;
+        font-weight: 700;
+        color: #a2185b;
+        background: #fce4ec;
+        padding: 1px 6px;
+        border-radius: 10px;
       }
       .no-results {
         grid-column: 1 / -1;
@@ -124,7 +138,7 @@
   <body>
     <header>
       <a href="../index.html" class="home-btn" title="메인으로">💚</a>
-      <h1>6월 학습 아카이브 (03 폴더)</h1>
+      <h1>6월 학습 아카이브 (실제 수정일 기준)</h1>
     </header>
 
     <main>
@@ -142,11 +156,73 @@
     </footer>
 
     <script>
+      // 6월에 수정된 파일 목록
       const files = [
-        "es3-23.html", "ex3-1.html", "ex3-3.html", "ex3-4.html", "ex3-16.html", "ex3-17.html", "ex3-18.html", "ex3-19.html", "ex3-20.html", "ex3-21.html", 
-        "ex3-22.html", "ex3-24.html", "ex3-25.html", "ex3-26.htm", "ex3-27.html", "ex3-28.html", "ex3-29.html", "ex3-30.html", "quiz.html", "함수.html",
-        "ex3-2.js", "ex3-5.js", "ex3.-6.js", "ex3-7.js", "ex3-8.js", "ex3-9.js", "ex3-10.js", "ex3-11.js", "ex3-12.js", "function.js", "params-default.js", "prams2.js",
-        "style.css"
+        // 03 폴더 파일 (6월 수정)
+        { name: "ex3-1.html", path: "ex3-1.html", folder: "03" },
+        { name: "ex3-2.js", path: "ex3-2.js", folder: "03" },
+        { name: "ex3-3.html", path: "ex3-3.html", folder: "03" },
+        { name: "ex3-4.html", path: "ex3-4.html", folder: "03" },
+        { name: "ex3-5.js", path: "ex3-5.js", folder: "03" },
+        { name: "ex3.-6.js", path: "ex3.-6.js", folder: "03" },
+        { name: "ex3-7.js", path: "ex3-7.js", folder: "03" },
+        { name: "ex3-8.js", path: "ex3-8.js", folder: "03" },
+        { name: "ex3-9.js", path: "ex3-9.js", folder: "03" },
+        { name: "ex3-10.js", path: "ex3-10.js", folder: "03" },
+        { name: "ex3-11.js", path: "ex3-11.js", folder: "03" },
+        { name: "ex3-12.js", path: "ex3-12.js", folder: "03" },
+        { name: "ex3-16.html", path: "ex3-16.html", folder: "03" },
+        { name: "ex3-17.html", path: "ex3-17.html", folder: "03" },
+        { name: "ex3-18.html", path: "ex3-18.html", folder: "03" },
+        { name: "ex3-19.html", path: "ex3-19.html", folder: "03" },
+        { name: "quiz.html", path: "quiz.html", folder: "03" },
+
+        // 02 폴더 파일 (6월 수정)
+        { name: "layout-1.html", path: "../02/layout-1.html", folder: "02" },
+        { name: "quiz5.html", path: "../02/quiz5.html", folder: "02" },
+        { name: "quiz6.html", path: "../02/quiz6.html", folder: "02" },
+        { name: "ex2-59.html", path: "../02/ex2-59.html", folder: "02" },
+        { name: "ex2-60.html", path: "../02/ex2-60.html", folder: "02" },
+        { name: "ex2-60-a.html", path: "../02/ex2-60-a.html", folder: "02" },
+        { name: "ex2-61.html", path: "../02/ex2-61.html", folder: "02" },
+        { name: "ex2-61-a.html", path: "../02/ex2-61-a.html", folder: "02" },
+        { name: "ex2-62.html", path: "../02/ex2-62.html", folder: "02" },
+        { name: "ex2-63.html", path: "../02/ex2-63.html", folder: "02" },
+        { name: "ex2-64.html", path: "../02/ex2-64.html", folder: "02" },
+        { name: "ex2-65.html", path: "../02/ex2-65.html", folder: "02" },
+        { name: "ex2-66.html", path: "../02/ex2-66.html", folder: "02" },
+        { name: "ex2-67.html", path: "../02/ex2-67.html", folder: "02" },
+        { name: "ex2-68.html", path: "../02/ex2-68.html", folder: "02" },
+        { name: "ex2-69.html", path: "../02/ex2-69.html", folder: "02" },
+        { name: "ex2-70.html", path: "../02/ex2-70.html", folder: "02" },
+        { name: "ex2-71.html", path: "../02/ex2-71.html", folder: "02" },
+        { name: "ex2-72.html", path: "../02/ex2-72.html", folder: "02" },
+        { name: "ex2-76.html", path: "../02/ex2-76.html", folder: "02" },
+        { name: "ex2-77.html", path: "../02/ex2-77.html", folder: "02" },
+        { name: "ex2-79.html", path: "../02/ex2-79.html", folder: "02" },
+        { name: "ex2-80.html", path: "../02/ex2-80.html", folder: "02" },
+        { name: "ex2-81.html", path: "../02/ex2-81.html", folder: "02" },
+        { name: "ex2-82.html", path: "../02/ex2-82.html", folder: "02" },
+        { name: "ex2-83.html", path: "../02/ex2-83.html", folder: "02" },
+        { name: "ex2-84.html", path: "../02/ex2-84.html", folder: "02" },
+        { name: "ex2-85.html", path: "../02/ex2-85.html", folder: "02" },
+        { name: "ex2-86.html", path: "../02/ex2-86.html", folder: "02" },
+        { name: "ex2-87.html", path: "../02/ex2-87.html", folder: "02" },
+        { name: "ex2-88.html", path: "../02/ex2-88.html", folder: "02" },
+        { name: "ex2-89.html", path: "../02/ex2-89.html", folder: "02" },
+        { name: "ex2-90.html", path: "../02/ex2-90.html", folder: "02" },
+        { name: "ex2-91.html", path: "../02/ex2-91.html", folder: "02" },
+        { name: "ex2-92.html", path: "../02/ex2-92.html", folder: "02" },
+        { name: "ex2-93.html", path: "../02/ex2-93.html", folder: "02" },
+        { name: "ex2-94.html", path: "../02/ex2-94.html", folder: "02" },
+        { name: "ex2-95.html", path: "../02/ex2-95.html", folder: "02" },
+        { name: "ex2-96.html", path: "../02/ex2-96.html", folder: "02" },
+        { name: "ex2-97.html", path: "../02/ex2-97.html", folder: "02" },
+        { name: "ex2-98.html", path: "../02/ex2-98.html", folder: "02" },
+        { name: "ex2-99.html", path: "../02/ex2-99.html", folder: "02" },
+        { name: "ex2-100.html", path: "../02/ex2-100.html", folder: "02" },
+        { name: "ex2-101.html", path: "../02/ex2-101.html", folder: "02" },
+        { name: "ex2-102.html", path: "../02/ex2-102.html", folder: "02" }
       ];
 
       const fileGrid = document.getElementById('fileGrid');
@@ -158,27 +234,30 @@
         let visibleCount = 0;
 
         files.forEach(file => {
-          if (file.toLowerCase().includes(query)) {
+          if (file.name.toLowerCase().includes(query)) {
             const card = document.createElement('a');
-            card.href = file;
+            card.href = file.path;
             card.className = 'file-card';
             
             // 파일 아이콘 결정
             let icon = "📄";
             let typeText = "HTML Document";
-            if (file.endsWith('.js')) {
+            if (file.name.endsWith('.js')) {
               icon = "⚙️";
-              typeText = "JavaScript Source";
-            } else if (file.endsWith('.css')) {
+              typeText = "JS Script";
+            } else if (file.name.endsWith('.css')) {
               icon = "🎨";
-              typeText = "Style Sheet";
+              typeText = "Stylesheet";
             }
 
             card.innerHTML = `
               <span class="file-icon">${icon}</span>
               <div class="file-info">
-                <span class="file-name">${file}</span>
-                <span class="file-type">${typeText}</span>
+                <span class="file-name">${file.name}</span>
+                <div class="file-meta">
+                  <span class="file-type">${typeText}</span>
+                  <span class="folder-badge">폴더: ${file.folder}</span>
+                </div>
               </div>
             `;
             fileGrid.appendChild(card);

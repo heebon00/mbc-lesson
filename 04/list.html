@@ -62,7 +62,7 @@
       }
       .file-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: 15px;
       }
       .file-card {
@@ -91,6 +91,7 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        flex-grow: 1;
       }
       .file-name {
         font-weight: 600;
@@ -99,10 +100,23 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      .file-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 4px;
+      }
       .file-type {
-        font-size: 12px;
+        font-size: 11px;
         color: #888;
-        margin-top: 2px;
+      }
+      .folder-badge {
+        font-size: 10px;
+        font-weight: 700;
+        color: #a2185b;
+        background: #fce4ec;
+        padding: 1px 6px;
+        border-radius: 10px;
       }
       .no-results {
         grid-column: 1 / -1;
@@ -124,7 +138,7 @@
   <body>
     <header>
       <a href="../index.html" class="home-btn" title="메인으로">💚</a>
-      <h1>7월 학습 아카이브 (04 폴더)</h1>
+      <h1>7월 학습 아카이브 (실제 수정일 기준)</h1>
     </header>
 
     <main>
@@ -142,8 +156,25 @@
     </footer>
 
     <script>
+      // 7월에 수정된 파일 목록 (실제 경로 지정)
       const files = [
-        "prom.md"
+        { name: "prom.md", path: "prom.md", folder: "04" },
+        { name: "es3-23.html", path: "../03/es3-23.html", folder: "03" },
+        { name: "ex3-20.html", path: "../03/ex3-20.html", folder: "03" },
+        { name: "ex3-21.html", path: "../03/ex3-21.html", folder: "03" },
+        { name: "ex3-22.html", path: "../03/ex3-22.html", folder: "03" },
+        { name: "ex3-24.html", path: "../03/ex3-24.html", folder: "03" },
+        { name: "ex3-25.html", path: "../03/ex3-25.html", folder: "03" },
+        { name: "ex3-26.htm", path: "../03/ex3-26.htm", folder: "03" },
+        { name: "ex3-27.html", path: "../03/ex3-27.html", folder: "03" },
+        { name: "ex3-28.html", path: "../03/ex3-28.html", folder: "03" },
+        { name: "ex3-29.html", path: "../03/ex3-29.html", folder: "03" },
+        { name: "ex3-30.html", path: "../03/ex3-30.html", folder: "03" },
+        { name: "function.js", path: "../03/function.js", folder: "03" },
+        { name: "params-default.js", path: "../03/params-default.js", folder: "03" },
+        { name: "prams2.js", path: "../03/prams2.js", folder: "03" },
+        { name: "style.css", path: "../03/style.css", folder: "03" },
+        { name: "함수.html", path: "../03/함수.html", folder: "03" }
       ];
 
       const fileGrid = document.getElementById('fileGrid');
@@ -155,30 +186,33 @@
         let visibleCount = 0;
 
         files.forEach(file => {
-          if (file.toLowerCase().includes(query)) {
+          if (file.name.toLowerCase().includes(query)) {
             const card = document.createElement('a');
-            card.href = file;
+            card.href = file.path;
             card.className = 'file-card';
             
             // 파일 아이콘 결정
             let icon = "📄";
-            let typeText = "Document";
-            if (file.endsWith('.md')) {
-              icon = "📝";
-              typeText = "Markdown Document";
-            } else if (file.endsWith('.js')) {
+            let typeText = "HTML Document";
+            if (file.name.endsWith('.js')) {
               icon = "⚙️";
-              typeText = "JavaScript Source";
-            } else if (file.endsWith('.html')) {
-              icon = "📄";
-              typeText = "HTML Document";
+              typeText = "JS Script";
+            } else if (file.name.endsWith('.css')) {
+              icon = "🎨";
+              typeText = "Stylesheet";
+            } else if (file.name.endsWith('.md')) {
+              icon = "📝";
+              typeText = "Markdown";
             }
 
             card.innerHTML = `
               <span class="file-icon">${icon}</span>
               <div class="file-info">
-                <span class="file-name">${file}</span>
-                <span class="file-type">${typeText}</span>
+                <span class="file-name">${file.name}</span>
+                <div class="file-meta">
+                  <span class="file-type">${typeText}</span>
+                  <span class="folder-badge">폴더: ${file.folder}</span>
+                </div>
               </div>
             `;
             fileGrid.appendChild(card);
