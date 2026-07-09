@@ -1,0 +1,46 @@
+name: Auto Update File Archives
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '03/**'
+      - '04/**'
+      - '!04/list.html'
+
+permissions:
+  contents: write
+
+jobs:
+  update-archive:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Run Archive Update Script
+      run: node update-archive.js
+
+    - name: Check for changes
+      id: git-check
+      run: |
+        git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+      continue-on-error: true
+
+    - name: Commit and push changes
+      if: steps.git-check.outputs.changes == 'true'
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add 04/list.html index.html
+        git commit -m "docs: auto-update July learning archives [skip ci]"
+        git push origin main
