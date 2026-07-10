@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 일반 함수의 this
+const user1 = {
+  name: '제노',
+  sayHi: function() {
+    console.log('안녕 ' + this.name); // this는 user1 객체
+  }
+};
+user1.sayHi();                  // '안녕 제노'
+
+
+
+        // 일반 함수의 this
+const user2 = {
+  name: '런쥔',
+  sayHi: () => {
+    console.log('안녕 ' + this.innerHeight); // this는 상위 스코프에서 this
+  }
+};
+user2.sayHi();                  // '안녕 철수'
+    </script>
+</body>
+</html>
